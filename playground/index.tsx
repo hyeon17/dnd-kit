@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import {useMemo, useState} from 'react';
-import * as ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom/client';
 
 import {
   DndContext,
@@ -40,15 +40,10 @@ const Playground = () => {
 };
 
 function Draggable() {
-  const {
-    attributes,
-    isDragging,
-    transform,
-    setNodeRef,
-    listeners,
-  } = useDraggable({
-    id: 'draggable-item',
-  });
+  const {attributes, isDragging, transform, setNodeRef, listeners} =
+    useDraggable({
+      id: 'draggable-item',
+    });
 
   return (
     <button
@@ -94,4 +89,5 @@ function Droppable({id, children}: DroppableProps) {
   );
 }
 
-ReactDOM.render(<Playground />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root')!);
+root.render(<Playground />);

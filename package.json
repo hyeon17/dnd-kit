@@ -16,7 +16,7 @@
     "build:storybook": "build-storybook",
     "prepublish": "lerna run prepublish",
     "start:playground": "yarn run build && yarn --cwd playground && yarn --cwd playground start",
-    "start:storybook": "start-storybook -p 6006",
+    "start:storybook": "NODE_OPTIONS='--openssl-legacy-provider' start-storybook -p 6006",
     "cypress": "cypress run",
     "cypress:open": "cypress open",
     "changeset": "changeset",
